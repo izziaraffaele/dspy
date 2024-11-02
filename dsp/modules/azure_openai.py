@@ -5,15 +5,7 @@ from typing import Any, Callable, Literal, Optional, cast
 
 import backoff
 
-try:
-    """
-    If there is any error in the langfuse configuration, it will turn to request the real address(openai or azure endpoint)
-    """
-    import langfuse
-    from langfuse.openai import openai
-    logging.info(f"You are using Langfuse,version{langfuse.__version__}")
-except:
-    import openai
+import openai
 
 from dsp.modules.cache_utils import CacheMemory, NotebookCacheMemory, cache_turn_on
 from dsp.modules.lm import LM
